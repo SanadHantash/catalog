@@ -22,11 +22,11 @@ function getdata() {
 
                 let card = document.createElement('div');
                 card.className = "card";
-                card.style = "width: 18rem; height:700px";
+                card.style = "width: 18rem; height:650px";
                 card.innerHTML = `
-                    <img src="${book.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%" >
+                    <img src="${book.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%; object-fit:contain" >
                     <div class="card-body">
-                        <h5 class="card-title">${book.title}</h5>
+                        <h5 class="card-title" style="overflow:hidden; height:75px">${book.title}</h5>
                         <p class="card-text">Author: ${book.author}</p>
                         <p class="card-text">Category: ${book.category}</p>
                     </div>
@@ -51,7 +51,7 @@ function getdata() {
 
 const categorySelect = document.getElementById('category');
 
-categorySelect.addEventListener("click", (e) => {
+categorySelect.addEventListener("change", (e) => {
     const selectedCategory = e.target.value; 
 
     fetch('http://localhost:3000/books')
@@ -63,9 +63,9 @@ categorySelect.addEventListener("click", (e) => {
                 if (element.category === selectedCategory) {
                     let card = document.createElement('div');
                     card.className = "card";
-                    card.style = "width: 18rem; height:700px";
+                    card.style = "width: 18rem; height:650px";
                     card.innerHTML = `
-                        <img src="${element.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%" >
+                        <img src="${element.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%; object-fit:contain" >
                         <div class="card-body">
                             <h5 class="card-title">${element.title}</h5>
                             <p class="card-text">Author: ${element.author}</p>
@@ -90,7 +90,7 @@ categorySelect.addEventListener("click", (e) => {
 
 const authorSelect = document.getElementById('author');
 
-authorSelect.addEventListener("click", (e) => {
+authorSelect.addEventListener("change", (e) => {
     const selectedAuthor = e.target.value; 
 
     fetch('http://localhost:3000/books')
@@ -102,9 +102,9 @@ authorSelect.addEventListener("click", (e) => {
                 if (element.author === selectedAuthor) {
                     let card = document.createElement('div');
                     card.className = "card";
-                    card.style = "width: 18rem; height:700px";
+                    card.style = "width: 18rem; height:650px";
                     card.innerHTML = `
-                        <img src="${element.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%" >
+                        <img src="${element.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%; object-fit:contain" >
                         <div class="card-body">
                             <h5 class="card-title">${element.title}</h5>
                             <p class="card-text">Author: ${element.author}</p>
@@ -128,7 +128,7 @@ authorSelect.addEventListener("click", (e) => {
 });
 const languageSelect = document.getElementById('language');
 
-languageSelect.addEventListener("click", (e) => {
+languageSelect.addEventListener("change", (e) => {
     const selectedLanguage = e.target.value; 
 
     fetch('http://localhost:3000/books')
@@ -141,9 +141,9 @@ languageSelect.addEventListener("click", (e) => {
                 if (element.language === selectedLanguage) {
                     let card = document.createElement('div');
                     card.className = "card";
-                    card.style = "width: 18rem; height:700px";
+                    card.style = "width: 18rem; height:650px";
                     card.innerHTML = `
-                        <img src="${element.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%" >
+                        <img src="${element.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%; object-fit:contain" >
                         <div class="card-body">
                             <h5 class="card-title">${element.title}</h5>
                             <p class="card-text">Author: ${element.author}</p>
@@ -186,9 +186,9 @@ function search(searchQuery) {
 
                 let card = document.createElement('div');
                 card.className = "card";
-                card.style = "width: 18rem; height:700px";
+                card.style = "width: 18rem; height:650px";
                 card.innerHTML = `
-                    <img src="${book.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%" >
+                    <img src="${book.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%; object-fit:contain" >
                     <div class="card-body">
                         <h5 class="card-title">${book.title}</h5>
                         <p class="card-text">Author: ${book.author}</p>
@@ -243,9 +243,9 @@ sortSelect.addEventListener("change", (e) => {
 
                 let card = document.createElement('div');
                 card.className = "card";
-                card.style = "width: 18rem; height:700px";
+                card.style = "width: 18rem; height:650px";
                 card.innerHTML = `
-                    <img src="${book.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%" >
+                    <img src="${book.image}" class="card-img-top" alt="Book Cover" style="max-width: 100%; height:75%;object-fit:contain" >
                     <div class="card-body">
                         <h5 class="card-title">${book.title}</h5>
                         <p class="card-text">Author: ${book.author}</p>
