@@ -33,7 +33,7 @@ function getdata() {
                 `;
 
                 card.querySelector('.card-img-top').addEventListener('click', () => {
-                    window.location.href = 'https://www.kooora.com/';
+                    window.location.href = '';
                 });
                 cards.appendChild(card);
             });
@@ -73,7 +73,7 @@ categorySelect.addEventListener("change", (e) => {
                         </div>
                     `;
                     card.querySelector('.card-img-top').addEventListener('click', () => {
-                        window.location.href = 'https://www.kooora.com/';
+                        window.location.href = '';
                     });
                     cards.appendChild(card);
                 }
@@ -108,7 +108,7 @@ authorSelect.addEventListener("change", (e) => {
                         </div>
                     `;
                     card.querySelector('.card-img-top').addEventListener('click', () => {
-                        window.location.href = 'https://www.kooora.com/';
+                        window.location.href = '';
                     });
                     cards.appendChild(card);
                 }
@@ -143,7 +143,7 @@ languageSelect.addEventListener("change", (e) => {
                         </div>
                     `;
                     card.querySelector('.card-img-top').addEventListener('click', () => {
-                        window.location.href = 'https://www.kooora.com/';
+                        window.location.href = '';
                     });
                     cards.appendChild(card);
                 }
@@ -184,7 +184,7 @@ function search(searchQuery) {
                 `;
 
                 card.querySelector('.card-img-top').addEventListener('click', () => {
-                    window.location.href = 'https://www.kooora.com/';
+                    window.location.href = '';
                 });
                 cards.appendChild(card);
             });
