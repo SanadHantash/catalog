@@ -8,8 +8,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary " style=background-color:#F1EFEF;>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./imgs/Magicbook_1-removebg-preview.png" alt="" style="width :70px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Catalog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Author</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+</ul>
+        <button class="btn btn-outline custom-search-button" type="submit" style="border-radius: 25px; border-color: #E55604 ;color: #E55604;transition: background-color=#E55604 2s ; margin-left: 3px; margin:10px;" >signin/up</button>
+      </div>
+    </div>
+  </nav>
+
   <div class="page">
-    <nav class="navbar">
+    <nav class="navbarfilter">
       <div class="filter">
         <div class="select-group" id="category">
           <select> 
@@ -28,17 +57,15 @@
         </div>
         <div class="select-group" id="author">
           <select> 
-            <option aria-placeholder="author">Authors</option>
+            <option value="author">Authors</option>
             <option value="Kahlil Gibran">Kahlil Gibran</option>
             <option value="George R.R. Martin">George R.R. Martin</option>
             <option value="J.R.R. Tolkien">J.R.R. Tolkien</option>
-            <option value="Howard Cutler">Howard Cutler</option>
             <option value="Dalai Lama and Howard Cutler">Dalai Lama and Howard Cutler</option>
             <option value="Antoine de Saint-Exupéry">Antoine de Saint-Exupéry</option>
             <option value="Friedrich Nietzsche">Friedrich Nietzsche</option>
             <option value="Plato">Plato</option>
             <option value="Neil Gaiman">Neil Gaiman</option>
-            <option value="M. Scott Peck">M. Scott Peck</option>
             <option value="Art Spiegelman">Art Spiegelman</option>
             <option value="Franz Kafka">Franz Kafka</option>
             <option value="Harper Lee">Harper Lee</option>
@@ -82,7 +109,7 @@
         </div>
         <div class="select-group" id="language">
           <select>
-            <option aria-placeholder="language">Languages</option>
+            <option value="language">Languages</option>
             <option value="English">English</option>
           <option value="Arabic">Arabic</option>
           <option value="German">German</option>
@@ -98,7 +125,7 @@
         </div>
         <div class="select-group" id="sort">
           <select>
-            <option placeholder="sortboy" >sortby</option>
+            <option value="sortby">sortby</option>
             <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
           <option value="latest">latest</option>
@@ -107,7 +134,7 @@
           </select>
           
         </div>
-          <div class="search-container">
+          <div class="search-container-books">
             <input type="text" placeholder="Search..." id="searchInput">
             <button type="submit" onclick="searchBooks()">Search</button>
         </div>
@@ -118,7 +145,7 @@
      
   </div>   
  
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="category.js"></script>
 </body>
 

@@ -33,7 +33,7 @@ function getdata() {
                 `;
 
                 card.querySelector('.card-img-top').addEventListener('click', () => {
-                    window.location.href = '';
+                    window.location.href = `html/detail.html?id=${book.id}`;
                 });
                 cards.appendChild(card);
             });
@@ -45,22 +45,30 @@ function getdata() {
 
 
 
+getdata();
 
-
-
+//Category
 
 const categorySelect = document.getElementById('category');
 
+
 categorySelect.addEventListener("change", (e) => {
     const selectedCategory = e.target.value; 
-
+    const authorOption = document.querySelector('#author option[value="author"]');
+    authorOption.selected = true;
+    const languageOption = document.querySelector('#language option[value="language"]');
+   languageOption.selected = true; 
+   const sortOption = document.querySelector('#sort option[value="sortby"]');
+   sortOption.selected = true; 
+ 
+   
     fetch('http://localhost:3000/books')
         .then(response => response.json())
         .then(data => {
             let cards = document.getElementById('book');
             cards.innerHTML = ''; 
             data.map(element => {
-                if (element.category === selectedCategory) {
+                if (element.category === selectedCategory ) {
                     let card = document.createElement('div');
                     card.className = "card";
                     card.style = "width: 18rem; height:650px";
@@ -73,7 +81,7 @@ categorySelect.addEventListener("change", (e) => {
                         </div>
                     `;
                     card.querySelector('.card-img-top').addEventListener('click', () => {
-                        window.location.href = '';
+                        window.location.href = `html/detail.html?id=${element.id}`;
                     });
                     cards.appendChild(card);
                 }
@@ -86,20 +94,31 @@ categorySelect.addEventListener("change", (e) => {
         if (selectedCategory == "category") {
             data = getdata();
         }
+
+
 });
+
+//Author
 
 const authorSelect = document.getElementById('author');
 
 authorSelect.addEventListener("change", (e) => {
     const selectedAuthor = e.target.value; 
-
+    const categoryOption = document.querySelector('#category option[value="category"]');
+    categoryOption.selected = true; 
+    const languageOption = document.querySelector('#language option[value="language"]');
+    languageOption.selected = true; 
+    const sortOption = document.querySelector('#sort option[value="sortby"]');
+    sortOption.selected = true; 
+  
+ 
     fetch('http://localhost:3000/books')
         .then(response => response.json())
         .then(data => {
             let cards = document.getElementById('book');
             cards.innerHTML = ''; 
             data.map(element => {
-                if (element.author === selectedAuthor) {
+                if (element.author === selectedAuthor ) {
                     let card = document.createElement('div');
                     card.className = "card";
                     card.style = "width: 18rem; height:650px";
@@ -112,7 +131,7 @@ authorSelect.addEventListener("change", (e) => {
                         </div>
                     `;
                     card.querySelector('.card-img-top').addEventListener('click', () => {
-                        window.location.href = '';
+                        window.location.href = `html/detail.html?id=${element.id}`;
                     });
                     cards.appendChild(card);
                 }
@@ -125,18 +144,27 @@ authorSelect.addEventListener("change", (e) => {
         if (selectedAuthor == "author") {
             data = getdata();
         }
+
 });
+
+//language
+
 const languageSelect = document.getElementById('language');
 
 languageSelect.addEventListener("change", (e) => {
     const selectedLanguage = e.target.value; 
-
+    const categoryOption = document.querySelector('#category option[value="category"]');
+    categoryOption.selected = true; 
+    const authorOption = document.querySelector('#author option[value="author"]');
+    authorOption.selected = true; 
+    const sortOption = document.querySelector('#sort option[value="sortby"]');
+    sortOption.selected = true; 
+    
     fetch('http://localhost:3000/books')
         .then(response => response.json())
         .then(data => {
             let cards = document.getElementById('book');
             cards.innerHTML = ''; 
-
             data.map(element => {
                 if (element.language === selectedLanguage) {
                     let card = document.createElement('div');
@@ -151,7 +179,7 @@ languageSelect.addEventListener("change", (e) => {
                         </div>
                     `;
                     card.querySelector('.card-img-top').addEventListener('click', () => {
-                        window.location.href = '';
+                        window.location.href = `html/detail.html?id=${element.id}`;
                     });
                     cards.appendChild(card);
                 }
@@ -166,15 +194,24 @@ languageSelect.addEventListener("change", (e) => {
         }
 });
 
-getdata();
 
 
+//Search
 function searchBooks() {
     let searchQuery = document.getElementById('searchInput').value;
     search(searchQuery);
 }
 
 function search(searchQuery) {
+    const categoryOption = document.querySelector('#category option[value="category"]');
+    categoryOption.selected = true; 
+    const authorOption = document.querySelector('#author option[value="author"]');
+    authorOption.selected = true;
+    const languageOption = document.querySelector('#language option[value="language"]');
+   languageOption.selected = true; 
+   const sortOption = document.querySelector('#sort option[value="sortby"]');
+   sortOption.selected = true; 
+ 
     fetch(`http://localhost:3000/books?q=${searchQuery}`)
         .then(response => response.json())
         .then(data => {
@@ -197,7 +234,7 @@ function search(searchQuery) {
                 `;
 
                 card.querySelector('.card-img-top').addEventListener('click', () => {
-                    window.location.href = '';
+                    window.location.href = `html/detail.html?id=${book.id}`;
                 });
                 cards.appendChild(card);
             });
@@ -205,14 +242,22 @@ function search(searchQuery) {
         .catch(error => {
             console.error('Error:', error);
         });
+      
 }
 
+
+//Sort
 
 const sortSelect = document.getElementById('sort');
 
 sortSelect.addEventListener("change", (e) => {
     const selectedSort = e.target.value;
-
+    const categoryOption = document.querySelector('#category option[value="category"]');
+    const languageOption = document.querySelector('#language option[value="language"]');
+    const authorOption = document.querySelector('#author option[value="author"]');
+    authorOption.selected = true; 
+    languageOption.selected = true; 
+    categoryOption.selected = true; 
     fetch('http://localhost:3000/books')
         .then(response => response.json())
         .then(data => {
@@ -238,6 +283,10 @@ sortSelect.addEventListener("change", (e) => {
                 data = sortbytoprated(data);
             }
 
+            if (selectedSort == "sortby") {
+                data = getdata();
+            }
+
             data.map(element => {
                 const book = new Book(element.id, element.title, element.author, element.category, element.rating, element.description, element.language, element.release_date, element.image);
 
@@ -254,7 +303,7 @@ sortSelect.addEventListener("change", (e) => {
                 `;
 
                 card.querySelector('.card-img-top').addEventListener('click', () => {
-                    window.location.href = '';
+                    window.location.href = `html/detail.html?id=${book.id}`;
                 });
                 cards.appendChild(card);
             
@@ -263,6 +312,10 @@ sortSelect.addEventListener("change", (e) => {
         .catch(error => {
             console.error('Error:', error);
         });
+
+        
+    
+
 });
 
 function sortDataAlphabetically(data) {
